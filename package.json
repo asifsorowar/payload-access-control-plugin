@@ -1,0 +1,63 @@
+{
+  "name": "payload-access-control",
+  "version": "1.0.0",
+  "description": "Role-based access control plugin for Payload CMS 3 — Roles collection with permission matrix UI, role/isAdmin fields on your auth collection, admin-panel gate that keeps roleless users out, and ready-made access helpers.",
+  "license": "MIT",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/asifsorowar/payload-access-control-plugin.git"
+  },
+  "type": "module",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js",
+      "default": "./dist/index.js"
+    },
+    "./client": {
+      "types": "./dist/client.d.ts",
+      "import": "./dist/client.js",
+      "default": "./dist/client.js"
+    }
+  },
+  "files": [
+    "dist"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json",
+    "test": "pnpm run build && node --test dist/access.test.js dist/plugin.test.js",
+    "clean": "rm -rf dist *.tsbuildinfo"
+  },
+  "peerDependencies": {
+    "payload": "^3.0.0",
+    "react": "^19.0.0",
+    "@payloadcms/ui": "^3.0.0"
+  },
+  "peerDependenciesMeta": {
+    "react": {
+      "optional": true
+    },
+    "@payloadcms/ui": {
+      "optional": true
+    }
+  },
+  "devDependencies": {
+    "payload": "3.90.1",
+    "@payloadcms/ui": "3.90.1",
+    "react": "19.2.6",
+    "react-dom": "19.2.6",
+    "@types/react": "^19.2.0",
+    "typescript": "^5.9.3 || ^6.0.0"
+  },
+  "keywords": [
+    "payload",
+    "payloadcms",
+    "plugin",
+    "rbac",
+    "roles",
+    "permissions",
+    "access-control"
+  ]
+}
