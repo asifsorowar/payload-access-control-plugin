@@ -1,6 +1,6 @@
 {
   "name": "payload-access-control",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "Role-based access control plugin for Payload CMS 3 — Roles collection with permission matrix UI, role/isAdmin fields on your auth collection, admin-panel gate that keeps roleless users out, and ready-made access helpers.",
   "license": "MIT",
   "repository": {
