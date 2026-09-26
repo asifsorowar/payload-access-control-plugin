@@ -114,7 +114,7 @@ For public reads without the public/private split, set `read: publicAccess` — 
 - **Roleless users cannot enter the admin panel.** The plugin injects `access.admin` (superuser or ≥1 role) into the user collection; Payload enforces it on every admin route. A roleless user can still authenticate against REST/GraphQL — every governed op stays `false` — they just never get a panel. Define your own `access.admin` to override.
 - `isAdmin` = superuser: bypasses every check, including the matrix. Its create/update field access is superuser-only, so role users can't flip it.
 - Anonymous requests get nothing (except ops you explicitly open with `publicAccess` / `publicOrGrantedOps`).
-- Adding collections or globals later needs **no migration and no role edits** — the matrix derives from your config on every boot, and `*` grants cover newcomers automatically.
+- Adding collections or globals later needs **no role edits** — the matrix derives from your config on every boot, and `*` grants cover newcomers automatically. On Postgres the collection picker is a `select` stored as a Postgres **enum**, so new slugs do need a one-line migration (`pnpm payload migrate:create && pnpm payload migrate` — instant `ALTER TYPE ADD VALUE`, safe on live tables). SQLite/Mongo need nothing.
 
 ## Bootstrapping the first superuser
 
